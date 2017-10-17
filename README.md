@@ -176,6 +176,19 @@ In no particular order:
       }
     }
     ```
+- **Can't compare `address` to `0` to check if it's empty**; need to compare to `address(0)`.
+
+  ```solidity
+  contract MyContract {
+    function isEmptyAddress(address addr) returns (bool) {
+      return (addr == address(0));
+    }
+  }
+  ```
+
+- **There's a limit to how many variables can be in a function**; this includes parameter and return variables. The limit is *16* variables.
+
+    However if you need that many variables, then *you're probably doing something wrong*. You can break up the function into smaller functions, and set global variables to public to generate getters.
 
 # Eamples
 
