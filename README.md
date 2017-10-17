@@ -234,11 +234,11 @@ Example code available in [`contracts/`](./contracts/) directory.
 
 # Contributing
 
-Pull requests are always welcomed for explaining or showing code that is not intuitive.
+Pull requests are always welcomed for explaining or showing a solidity feature that is not intuitive.
 
 # Issues
 
-Ethereum and Solidity is quickly evolving so some things may no longer be relevant in the future.
+Ethereum and Solidity are quickly evolving so some things may no longer be relevant in the future.
 
 Please submit an issue or make a pull request if something in incorrect.
 
