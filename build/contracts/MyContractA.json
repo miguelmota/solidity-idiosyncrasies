@@ -1,0 +1,30 @@
+{
+  "contract_name": "MyContractA",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "MyContract",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "myMethod",
+      "outputs": [
+        {
+          "name": "num",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b5b60c08061001e6000396000f300606060405263ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416636d7da0b18114604657806370dce926146058575b600080fd5b3415605057600080fd5b6056607a565b005b3415606257600080fd5b6068608e565b60405190815260200160405180910390f35b6080608e565b600b14608b57600080fd5b5b565b600a5b905600a165627a7a72305820eacb5d13cb2cd86750c20c350fe10a756b755791532c5ec30f2835b2981738460029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1508224379530
+}

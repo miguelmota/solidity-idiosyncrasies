@@ -16,7 +16,7 @@ In no particular order:
   contract MyContract {
     uint[] array = [1,2,3];
 
-    function removeAtIndex(uint index) returns(uint[]) {
+    function removeAtIndex(uint index) returns (uint[]) {
       if (index >= array.length) return;
 
       for (uint i = index; i < array.length-1; i++) {
@@ -58,7 +58,7 @@ In no particular order:
 
   ```solidity
   contract MyContract {
-    function compare(string s1, string s2) returns(bool) {
+    function compare(string s1, string s2) returns (bool) {
       return (sha3(s1) == sha3(s2));
     }
   }
@@ -190,7 +190,7 @@ In no particular order:
 
     However if you need that many variables, then *you're probably doing something wrong*. You can break up the function into smaller functions, and set global variables to public to generate getters.
 
-- **You can specify return variables in `returns` list.**
+- **You can specify named output parameters in `returns` signature which creates new local variables.**
 
   ```solidity
   contract MyContract {
