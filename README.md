@@ -218,6 +218,33 @@ In no particular order:
   }
   ```
 
+- **Suffixes like seconds, minutes, hours, days, weeks and years after literal numbers can be used to convert between units of time**, where seconds are the base unit and units are considered naively in the following way:
+
+    ```solidity
+    contract MyContract {
+      function MyContract() {
+        assert(1 == 1 seconds);
+        assert(1 minutes == 60 seconds);
+        assert(1 hours == 60 minutes);
+        assert(1 days == 24 hours);
+        assert(1 weeks == 7 days);
+        assert(1 years == 365 days);
+      }
+    }
+    ```
+
+    Take care if you perform calendar calculations using these units, because not every year equals 365 days and not even every day has 24 hours because of leap seconds. Due to the fact that leap seconds cannot be predicted, an exact calendar library has to be updated by an external oracle.
+
+- **Date suffixes can't be applied to variables**; here's how you can interpret some input variable in, e.g days:
+
+    ```solidity
+    contract MyContract {
+      function hasStarted(uint start, uint daysAfter) returns (bool) {
+        return (now >= start + daysAfter * 1 days);
+      }
+    }
+    ```
+
 - **Generating random numbers is hard;** because Ethereum a deterministic system. You can generate a "random" number based on the block hash and block number, but keep in mind that miners have influence on these values.
 
     ```solidity
