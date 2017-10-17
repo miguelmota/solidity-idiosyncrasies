@@ -193,12 +193,14 @@ In no particular order:
 - **You can specify return variables in `returns` list.**
 
   ```solidity
-  function MyContract() {
-    assert(myMethod() == 10);
-  }
+  contract MyContract {
+    function MyContract() {
+      assert(myMethod() == 10);
+    }
 
-  function myMethod() returns (uint num) {
-    num = 10;
+    function myMethod() returns (uint num) {
+      num = 10;
+    }
   }
   ```
 
