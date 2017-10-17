@@ -31,7 +31,7 @@ In no particular order:
 
 - Can't splice an array; need to do it manually and update `length`.
 
-- Using `delete` on an array leaves a gap. Need to shift items and update `length`.
+- Using `delete` on an array leaves a gap; need to shift items manually and update the `length` property.
 
   ```solidity
   contract MyContract {
