@@ -217,7 +217,7 @@ In no particular order:
 
 - **Calls are limited to a depth of 1024**; which means that for more complex operations, loops should be preferred over recursive calls.
 
-- **Have to declare the source file compiler version at the top of the contract file**.
+- **Have to declare the source file compiler version at the top of the contract file**; the `^` means to use the latest patch release (0.4.x), so it uses the most update to date version without any breaking changes.
 
   ```solidity
   pragma solidity ^0.4.4;
@@ -274,6 +274,25 @@ In no particular order:
       }
     }
     ```
+
+- **Use `indexed` for events parameters**; it allows you to search for the events using the indexed parameters as filters.
+
+  ```solidity
+  contract MyContract {
+    event Transfer(address indexed sender, address indexed recipient, uint256 amount);
+  }
+  ```
+
+  ```javascript
+  // Filter by indexed parameter.
+  myContract.events.Transfer({sender: '0x123...abc'}, (error, events) => {})
+
+  // Can't filter by un-indexed parameter.
+  // This won't work.
+  myContract.events.Transfer({amount: 1}, (error, events) => {})
+  ```
+
+- **Only up to three parameters can receive the attribute `indexed` for event parameters.**
 
 - **You can specify named output parameters in `returns` signature which creates new local variables.**
 
