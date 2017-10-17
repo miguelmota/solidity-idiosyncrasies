@@ -204,7 +204,7 @@ In no particular order:
   }
   ```
 
-- **Solidity compiles the `enum` variable type down to an `int8`* (unless the enum has more than 8 options, in which case it walks up the int type scale).
+- **Solidity compiles the `enum` variable type down to an `int8`** (unless the enum has more than 8 options, in which case it walks up the int type scale).
 
   ```solidity
   contract MyContract {
