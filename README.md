@@ -76,7 +76,7 @@ In no particular order:
       assert(size(str) == 3);
     }
 
-    function size(string s) returns(uint) {
+    function size(string s) returns (uint) {
       return bytes(s).length;
     }
   }
@@ -189,6 +189,18 @@ In no particular order:
 - **There's a limit to how many variables can be in a function**; this includes parameter and return variables. The limit is *16* variables, otherwise you get the `StackTooDeepException` error *"Internal compiler error: Stack too deep, try removing local variables."*.
 
     However if you need that many variables, then *you're probably doing something wrong*. You can break up the function into smaller functions, and set global variables to public to generate getters.
+
+- **You can specify return variables in `returns` list.**
+
+  ```solidity
+  function MyContract() {
+    assert(myMethod() == 10);
+  }
+
+  function myMethod() returns (uint num) {
+    num = 10;
+  }
+  ```
 
 # Eamples
 

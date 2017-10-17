@@ -7,7 +7,7 @@ contract MyContract {
     assert(size(str) == 3);
   }
 
-  function size(string s) returns(uint) {
+  function size(string s) returns (uint) {
     return bytes(s).length;
   }
 }
