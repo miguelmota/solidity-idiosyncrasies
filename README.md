@@ -10,29 +10,6 @@ This is a list of things that have caused me to bang my head against a brick wal
 
 In no particular order:
 
-- **Can't return `struct` for `external` methods**; need to return multiple values.
-
-  ```solidity
-  contract MyContract {
-    struct MyStruct {
-      uint foo;
-      string bar;
-    }
-
-    MyStruct myStruct;
-
-    function MyContract() {
-      myStruct = MyStruct(10, "hello");
-    }
-
-    function myMethod() external returns (uint, string) {
-      return (myStruct.foo, myStruct.bar);
-    }
-  }
-  ```
-
-- **Can't splice an array**; need to do it manually and update `length`.
-
 - **Using `delete` on an array leaves a gap**; need to shift items manually and update the `length` property.
 
   ```solidity
@@ -50,6 +27,27 @@ In no particular order:
       array.length--;
 
       return array;
+    }
+  }
+  ```
+
+- **Can't return `struct` for `external` methods**; need to return multiple values.
+
+  ```solidity
+  contract MyContract {
+    struct MyStruct {
+      string str;
+      uint i;
+    }
+
+    MyStruct myStruct;
+
+    function MyContract() {
+      myStruct = MyStruct("foo", 1);
+    }
+
+    function myMethod() external returns (string, uint) {
+      return (myStruct.str, myStruct.i);
     }
   }
   ```
