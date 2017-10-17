@@ -204,9 +204,22 @@ In no particular order:
   }
   ```
 
-- **Solidity compiles the `enum` data type down to an `int8`* (unless the enum has more than 8 options, in which case it walks up the int type scale).
+- **Solidity compiles the `enum` variable type down to an `int8`* (unless the enum has more than 8 options, in which case it walks up the int type scale).
 
   ```solidity
+  contract MyContract {
+    enum MyEnum {
+      Foo,
+      Bar,
+      Qux
+    }
+
+    function MyContract() {
+      assert(uint(MyEnum.Foo) == 0);
+      assert(uint(MyEnum.Bar) == 1);
+      assert(uint(MyEnum.Qux) == 2);
+    }
+  }
   ```
 
 - **Exceptions consume all the gas.**

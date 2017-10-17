@@ -2,11 +2,14 @@ pragma solidity ^0.4.4;
 
 contract MyContract {
   enum MyEnum {
-    string foo;
-    string bar;
+    Foo,
+    Bar,
+    Qux
   }
 
   function MyContract() {
-    assert(MyEnum.bar == 1);
+    assert(uint(MyEnum.Foo) == 0);
+    assert(uint(MyEnum.Bar) == 1);
+    assert(uint(MyEnum.Qux) == 2);
   }
 }
