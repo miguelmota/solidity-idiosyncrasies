@@ -2,7 +2,7 @@
 
 > [Solidity](https://github.com/ethereum/solidity) gotchas, pitfalls, limitations, and idiosyncrasies.
 
-This is a list of things that have caused me to bang my head against a brick wall when coming across them while working with solidity.
+This is a list of things that have caused me to bang my head against a brick wall when coming across them in solidity.
 
 ---
 
@@ -29,7 +29,7 @@ In no particular order:
   }
   ```
 
-- Can't splice an array. Need to do it manually and update `length`.
+- Can't splice an array; need to do it manually and update `length`.
 
 - Using `delete` on an array leaves a gap. Need to shift items and update `length`.
 
@@ -52,9 +52,9 @@ In no particular order:
   }
   ```
 
-- Can't typecast to `string`. Can use [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils).
+- Can't typecast to `string`. The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) can help.
 
-- Can't compare two `string`s. Can compare `sha3` hashes.
+- Can't compare two `string`s; one workaround is to compare the `sha3` hashes of the strings.
 
   ```solidity
   contract MyContract {
@@ -64,9 +64,9 @@ In no particular order:
   }
   ```
 
-  or compare byte by byte. Can use [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils).
+  or compare `byte` by `byte`. The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) has good examples.
 
-- Can't check `string` `length`. Need to convert to `bytes` to check `length`.
+- Can't check `string` `length`; need to convert to `bytes` to check `length`.
 
   ```solidity
   contract MyContract {
@@ -82,9 +82,9 @@ In no particular order:
   }
   ```
 
-- Can't pass array of `string`s as argument to `external` function. Need to do manual serializing and deserializing.
+- Can't pass array of `string`s as argument to `external` function; need to do manual serializing and deserializing.
 
-- Can't typcast `address` to `string`. Need to manually convert using `bytes`.
+- Can't typcast `address` to `string`; need to manually convert using `bytes`.
 
   ```solidity
   contract MyContract {
@@ -103,7 +103,7 @@ In no particular order:
   }
   ```
 
-- Can't typecast `bytes` to `string`. Need to do manual conversion.
+- Can't typecast `bytes` to `string`; need to do manual conversion.
 
     ```
     contract MyContract {
@@ -139,17 +139,17 @@ In no particular order:
 
 - `public` vs `external` vs `internal` vs `private`
 
-   - `external`: External functions are part of the contract interface, which means they can be called from other contracts and via transactions. External functions are sometimes more efficient when they receive large arrays of data. Use external if you expect that the function will only ever be called externally. For external functions, the compiler doesn't need to allow internal calls, and so it allows arguments to be read directly from calldata, saving the copying step, which will save more gas.
+   - `external`: function is part of the contract interface, which means it can be called from other contracts and via transactions. External functions are sometimes more efficient when they receive large arrays of data. Use external if you expect that the function will only ever be called externally. For external functions, the compiler doesn't need to allow internal calls, and so it allows arguments to be read directly from calldata, saving the copying step, which will save more gas.
 
-    `public`: function can either be called internally or externally. For public state variables, an automatic getter function is generated.
+    - `public`: function can either be called internally or externally. For public state variables, an automatic getter function is generated.
 
-    `internal`: function or state variables can only be accessed internally (i.e. from within the current contract or contracts deriving from it), without using `this`.
+    - `internal`: function or state variables can only be accessed internally (i.e. from within the current contract or contracts deriving from it), without using `this`.
 
-    `private`: function or state variable is only visible for the contract they are defined in and not in derived contracts.
+    - `private`: function or state variable is only visible for the contract they are defined in and not in derived contracts.
 
-#
+# Eamples
 
-Example code available in [`contracts/`](./contracts/) directory
+Example code available in [`contracts/`](./contracts/) directory.
 
 # License
 
