@@ -143,7 +143,7 @@ In no particular order:
 
     The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) has more string typecasting examples.
 
-- **Using `var`, the type is only deduced from the first assignment**;so this can be dangerous in certain scenarios like the following:
+- **Using `var`, the type is only deduced from the first assignment**; so this can be dangerous in certain scenarios where it's initialized to a smaller data type then expected, causing undesired consequences, like the following:
 
     ```solidity
     contract MyContract {
