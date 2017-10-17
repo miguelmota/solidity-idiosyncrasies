@@ -52,8 +52,6 @@ In no particular order:
   }
   ```
 
-- **Can't typecast to `string`**. The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) has good examples.
-
 - **Can't compare two `string`s**; one workaround is to compare the `sha3` hashes of the strings.
 
   ```solidity
@@ -65,6 +63,16 @@ In no particular order:
   ```
 
   or compare `byte` by `byte`. The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) has good examples.
+
+- **Can't compare `address` to `0` to check if it's empty**; need to compare to `address(0)`.
+
+  ```solidity
+  contract MyContract {
+    function isEmptyAddress(address addr) returns (bool) {
+      return (addr == address(0));
+    }
+  }
+  ```
 
 - **`string` has no `length` property**; need to convert to `bytes` to check `length`.
 
@@ -133,6 +141,8 @@ In no particular order:
     }
     ```
 
+    The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) has more string typecasting examples.
+
 - **`uint` is alias to `uint256`**.
 
 - **`byte` is alias to `bytes1`**.
@@ -157,52 +167,9 @@ In no particular order:
 
 - **`msg.sender` is the contract caller**; (aka contract creator if in the constructor).
 
-- **Have to declare the source file compiler version at the top of the contract file**.
-
-  ```solidity
-  pragma solidity ^0.4.4;
-
-  contract MyContract {
-
-  }
-  ```
-
-- **Generating random numbers is hard;** because Ethereum a deterministic system. You can generate a "random" number based on the block hash and block number, but keep in mind that miners have influence on these values.
-
-    ```solidity
-    contract MyContract {
-      function rand(uint min, uint max) public returns (uint) {
-        return uint(block.blockhash(block.number-1))%(min+max)-min;
-      }
-    }
-    ```
-- **Can't compare `address` to `0` to check if it's empty**; need to compare to `address(0)`.
-
-  ```solidity
-  contract MyContract {
-    function isEmptyAddress(address addr) returns (bool) {
-      return (addr == address(0));
-    }
-  }
-  ```
-
 - **There's a limit to how many variables can be in a function**; this includes parameter and return variables. The limit is *16* variables, otherwise you get the `StackTooDeepException` error *"Internal compiler error: Stack too deep, try removing local variables."*.
 
     However if you need that many variables, then *you're probably doing something wrong*. You can break up the function into smaller functions, and set global variables to public to generate getters.
-
-- **You can specify named output parameters in `returns` signature which creates new local variables.**
-
-  ```solidity
-  contract MyContract {
-    function MyContract() {
-      assert(myMethod() == 10);
-    }
-
-    function myMethod() returns (uint num) {
-      num = 10;
-    }
-  }
-  ```
 
 - **Solidity compiles the `enum` variable type down to an `int8`**; (unless the enum has more than 8 options, in which case it walks up the int type scale).
 
@@ -230,6 +197,16 @@ In no particular order:
 
 - **Calls are limited to a depth of 1024**; which means that for more complex operations, loops should be preferred over recursive calls.
 
+- **Have to declare the source file compiler version at the top of the contract file**.
+
+  ```solidity
+  pragma solidity ^0.4.4;
+
+  contract MyContract {
+
+  }
+  ```
+
 - **All primitive data types are initialized with default values**; there is no "null" data type (like in JavaScript).
 
   ```solidity
@@ -238,6 +215,30 @@ In no particular order:
     string str; // ""
     address addr; // 0x0000000000000000000000000000000000000000
     bool b; // false
+  }
+  ```
+
+- **Generating random numbers is hard;** because Ethereum a deterministic system. You can generate a "random" number based on the block hash and block number, but keep in mind that miners have influence on these values.
+
+    ```solidity
+    contract MyContract {
+      function rand(uint min, uint max) public returns (uint) {
+        return uint(block.blockhash(block.number-1))%(min+max)-min;
+      }
+    }
+    ```
+
+- **You can specify named output parameters in `returns` signature which creates new local variables.**
+
+  ```solidity
+  contract MyContract {
+    function MyContract() {
+      assert(myMethod() == 10);
+    }
+
+    function myMethod() returns (uint num) {
+      num = 10;
+    }
   }
   ```
 
