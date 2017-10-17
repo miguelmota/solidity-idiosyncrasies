@@ -4,7 +4,7 @@
 
 This is a list of things that have caused me to bang my head against a brick wall when coming across them in solidity.
 
-<img src="headbang.gif" width="200" />
+<img src="headbang.gif" width="140" />
 
 ---
 
