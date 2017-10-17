@@ -204,7 +204,7 @@ In no particular order:
   }
   ```
 
-- **Solidity compiles the `enum` variable type down to an `int8`** (unless the enum has more than 8 options, in which case it walks up the int type scale).
+- **Solidity compiles the `enum` variable type down to an `int8`**; (unless the enum has more than 8 options, in which case it walks up the int type scale).
 
   ```solidity
   contract MyContract {
@@ -224,9 +224,11 @@ In no particular order:
 
 - **Exceptions consume all the gas.**
 
-- **Calls to external functions can fail, so always check return value**, like when using `send()`.
+- **Calls to external functions can fail, so always check return value**; like when using `send()`.
 
 - **Use `transfer()` instead of `send()`**; `transfer()` is equivalent of `require(x.send(y))` (will throw if not successful).
+
+- **Calls are limited to a depth of 1024**; which means that for more complex operations, loops should be preferred over recursive calls.
 
 # Eamples
 
