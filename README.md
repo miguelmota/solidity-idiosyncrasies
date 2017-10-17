@@ -230,6 +230,17 @@ In no particular order:
 
 - **Calls are limited to a depth of 1024**; which means that for more complex operations, loops should be preferred over recursive calls.
 
+- **All primitive data types are initialized with default values**; there is no "null" data type (like in JavaScript).
+
+  ```solidity
+  contract MyContract {
+    int n; // 0
+    string str; // ""
+    address addr; // 0x0000000000000000000000000000000000000000
+    bool b; // false
+  }
+  ```
+
 # Eamples
 
 Example code available in [`contracts/`](./contracts/) directory.
