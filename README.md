@@ -82,7 +82,7 @@ In no particular order:
   }
   ```
 
-- **Can't pass array of `string`s as argument to `external` function**; need to do manual serializing and deserializing.
+- **Can't pass array of `string`s as argument to `external` function (from web3)**; need to do manual serializing and deserializing.
 
 - **Can't typcast `address` to `string`**; need to manually convert using `bytes`.
 
