@@ -8,7 +8,7 @@ This is a list of things that have caused me to bang my head against a brick wal
 
 In no particular order:
 
-- Can't return `struct` for `external` methods; need to return multiple values.
+- **Can't return `struct` for `external` methods**; need to return multiple values.
 
   ```solidity
   contract MyContract {
