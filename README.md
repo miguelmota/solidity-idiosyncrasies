@@ -52,7 +52,7 @@ In no particular order:
   }
   ```
 
-- **Can't typecast to `string`**. The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) can help.
+- **Can't typecast to `string`**. The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) has good examples.
 
 - **Can't compare two `string`s**; one workaround is to compare the `sha3` hashes of the strings.
 
