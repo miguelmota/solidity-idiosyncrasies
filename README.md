@@ -1,4 +1,4 @@
-# Solidity Idiosyncrasies
+# Solidity idiosyncrasies
 
 > [Solidity](https://github.com/ethereum/solidity) gotchas, pitfalls, limitations, and idiosyncrasies.
 
