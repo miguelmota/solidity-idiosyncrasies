@@ -159,6 +159,14 @@ In no particular order:
 
 Example code available in [`contracts/`](./contracts/) directory.
 
+# Contributing
+
+Pull requests are always welcomed for explaining or showing code that is not intuitive.
+
+# Issues
+
+Please submit an issue or make a pull request if something in incorrect. I'm no solidity expert!
+
 # Resources
 
 - [Solidity](https://github.com/ethereum/solidity)
