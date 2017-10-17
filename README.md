@@ -204,6 +204,17 @@ In no particular order:
   }
   ```
 
+- **Solidity compiles the `enum` data type down to an `int8`* (unless the enum has more than 8 options, in which case it walks up the int type scale).
+
+  ```solidity
+  ```
+
+- **Exceptions consume all the gas.**
+
+- **Calls to external functions can fail, so always check return value**, like when using `send()`.
+
+- **Use `transfer()` instead of `send()`**; `transfer()` is equivalent of `require(x.send(y))` (will throw if not successful).
+
 # Eamples
 
 Example code available in [`contracts/`](./contracts/) directory.
@@ -223,6 +234,8 @@ Please submit an issue or make a pull request if something in incorrect.
 - [Solidity](https://github.com/ethereum/solidity)
 
 - [Truffle](https://github.com/trufflesuite/truffle)
+
+- [Smart Contract Best Practices](https://github.com/ConsenSys/smart-contract-best-practices)
 
 - [Solidity Baby Steps](https://github.com/fivedogit/solidity-baby-steps)
 
