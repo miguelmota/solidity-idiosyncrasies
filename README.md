@@ -135,9 +135,15 @@ In no particular order:
 
 - **`uint` is alias to `uint256`**.
 
-- **`bytes` is alias to `bytes32`**.
+- **`byte` is alias to `bytes1`**.
 
 - **`sha3` is alias to `keccak256`**.
+
+- **`now` is alias to `block.timestamp`**.
+
+- **`bytes` is the same `byte[]` but packed tightly (more expensive)**.
+
+- **`string` is the same as `bytes` but doesn't allow length or index access**.
 
 - **`public` vs `external` vs `internal` vs `private`**
 
