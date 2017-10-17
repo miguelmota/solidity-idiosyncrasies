@@ -143,6 +143,19 @@ In no particular order:
 
     The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) has more string typecasting examples.
 
+- **Using `var`, the type is only deduced from the first assignment**;so this can be dangerous in certain scenarios like the following:
+
+    ```solidity
+    contract MyContract {
+      function loop() {
+        // i = 255 (uint8), causing an infinite loop.
+        for (var i = 0; i < 1000; i++) {
+
+        }
+      }
+    }
+    ```
+
 - **`uint` is alias to `uint256`**.
 
 - **`byte` is alias to `bytes1`**.
@@ -272,6 +285,8 @@ In no particular order:
     }
   }
   ```
+
+- **Contracts can't activate themselves**; they need a "poke", e.g. a contract can't automatically do something when it reaches a certain block number (like a cron job). There needs to be a call from the outside for the contract to do something; an external poke.
 
 # Eamples
 
