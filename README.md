@@ -29,9 +29,9 @@ In no particular order:
   }
   ```
 
-- Can't splice an array; need to do it manually and update `length`.
+- **Can't splice an array**; need to do it manually and update `length`.
 
-- Using `delete` on an array leaves a gap; need to shift items manually and update the `length` property.
+- **Using `delete` on an array leaves a gap**; need to shift items manually and update the `length` property.
 
   ```solidity
   contract MyContract {
@@ -52,9 +52,9 @@ In no particular order:
   }
   ```
 
-- Can't typecast to `string`. The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) can help.
+- **Can't typecast to `string`**. The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) can help.
 
-- Can't compare two `string`s; one workaround is to compare the `sha3` hashes of the strings.
+- **Can't compare two `string`s**; one workaround is to compare the `sha3` hashes of the strings.
 
   ```solidity
   contract MyContract {
@@ -66,7 +66,7 @@ In no particular order:
 
   or compare `byte` by `byte`. The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) has good examples.
 
-- Can't check `string` `length`; need to convert to `bytes` to check `length`.
+- **`string` has no `length` property**; need to convert to `bytes` to check `length`.
 
   ```solidity
   contract MyContract {
@@ -82,9 +82,9 @@ In no particular order:
   }
   ```
 
-- Can't pass array of `string`s as argument to `external` function; need to do manual serializing and deserializing.
+- **Can't pass array of `string`s as argument to `external` function**; need to do manual serializing and deserializing.
 
-- Can't typcast `address` to `string`; need to manually convert using `bytes`.
+- **Can't typcast `address` to `string`**; need to manually convert using `bytes`.
 
   ```solidity
   contract MyContract {
@@ -103,7 +103,7 @@ In no particular order:
   }
   ```
 
-- Can't typecast `bytes` to `string`; need to do manual conversion.
+- **Can't typecast `bytes` to `string`**; need to do manual conversion.
 
     ```
     contract MyContract {
@@ -133,11 +133,13 @@ In no particular order:
     }
     ```
 
-- `uint` is alias to `uint256`.
+- **`uint` is alias to `uint256`**.
 
-- `bytes` is alias to `bytes32`.
+- **`bytes` is alias to `bytes32`**.
 
-- `public` vs `external` vs `internal` vs `private`
+- **`sha3` is alias to `keccak256`**.
+
+- **`public` vs `external` vs `internal` vs `private`**
 
    - `external`: function is part of the contract interface, which means it can be called from other contracts and via transactions. External functions are sometimes more efficient when they receive large arrays of data. Use external if you expect that the function will only ever be called externally. For external functions, the compiler doesn't need to allow internal calls, and so it allows arguments to be read directly from calldata, saving the copying step, which will save more gas.
 
