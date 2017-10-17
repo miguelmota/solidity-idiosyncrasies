@@ -4,6 +4,8 @@
 
 This is a list of things that have caused me to bang my head against a brick wall when coming across them in solidity.
 
+<img src="headbang.gif" width="200" />
+
 ---
 
 In no particular order:
@@ -152,6 +154,12 @@ In no particular order:
 # Eamples
 
 Example code available in [`contracts/`](./contracts/) directory.
+
+# Resources
+
+- [Solidity](https://github.com/ethereum/solidity)
+
+- [Truffle](https://github.com/trufflesuite/truffle)
 
 # License
 
