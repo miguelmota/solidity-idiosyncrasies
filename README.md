@@ -155,6 +155,28 @@ In no particular order:
 
     - `private`: function or state variable is only visible for the contract they are defined in and not in derived contracts.
 
+- **`msg.sender` is the contract caller**; (aka contract creator if in the constructor).
+
+- **Have to declare the source file compiler version at the top of the contract file**.
+
+  ```solidity
+  pragma solidity ^0.4.4;
+
+  contract MyContract {
+
+  }
+  ```
+
+- **Generating random numbers is hard;** because Ethereum a deterministic system. You can generate a "random" number based on the block hash and block number, but keep in mind that miners have influence on these values.
+
+    ```solidity
+    contract MyContract {
+      function rand(uint min, uint max) public returns (uint) {
+        return uint(block.blockhash(block.number-1))%(min+max)-min;
+      }
+    }
+    ```
+
 # Eamples
 
 Example code available in [`contracts/`](./contracts/) directory.
@@ -165,7 +187,9 @@ Pull requests are always welcomed for explaining or showing code that is not int
 
 # Issues
 
-Please submit an issue or make a pull request if something in incorrect. I'm no solidity expert!
+Ethereum and Solidity is quickly evolving so some things may no longer be relevant in the future.
+
+Please submit an issue or make a pull request if something in incorrect.
 
 # Resources
 
