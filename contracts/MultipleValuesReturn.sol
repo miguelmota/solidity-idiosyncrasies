@@ -2,17 +2,17 @@ pragma solidity ^0.4.4;
 
 contract MyContract {
   struct MyStruct {
-    uint foo;
-    string bar;
+    string str;
+    uint i;
   }
 
   MyStruct myStruct;
 
   function MyContract() {
-    myStruct = MyStruct(10, "hello");
+    myStruct = MyStruct("foo", 1);
   }
 
-  function myMethod() external returns (uint, string) {
-    return (myStruct.foo, myStruct.bar);
+  function myMethod() external returns (string, uint) {
+    return (myStruct.str, myStruct.i);
   }
 }

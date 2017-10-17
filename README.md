@@ -23,7 +23,7 @@ In no particular order:
       myStruct = MyStruct(10, "hello");
     }
 
-    function myMethod() returns (uint, string) {
+    function myMethod() external returns (uint, string) {
       return (myStruct.foo, myStruct.bar);
     }
   }
