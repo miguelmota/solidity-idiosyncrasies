@@ -4,7 +4,7 @@
 
 This is a list of things that have caused me to bang my head against a brick wall when coming across them in solidity.
 
-<img src="headbang.gif" width="140" />
+<img src="headbang.gif" width="80" />
 
 ---
 
@@ -186,7 +186,7 @@ In no particular order:
   }
   ```
 
-- **There's a limit to how many variables can be in a function**; this includes parameter and return variables. The limit is *16* variables.
+- **There's a limit to how many variables can be in a function**; this includes parameter and return variables. The limit is *16* variables, otherwise you get the `StackTooDeepException` error *"Internal compiler error: Stack too deep, try removing local variables."*.
 
     However if you need that many variables, then *you're probably doing something wrong*. You can break up the function into smaller functions, and set global variables to public to generate getters.
 
@@ -209,6 +209,10 @@ Please submit an issue or make a pull request if something in incorrect.
 - [Solidity](https://github.com/ethereum/solidity)
 
 - [Truffle](https://github.com/trufflesuite/truffle)
+
+- [Solidity Baby Steps](https://github.com/fivedogit/solidity-baby-steps)
+
+- [Ethereum Stack Exchange](https://ethereum.stackexchange.com/)
 
 # License
 
