@@ -195,6 +195,10 @@ In no particular order:
 
 - **Use `transfer()` instead of `send()`**; `transfer()` is equivalent of `require(x.send(y))` (will throw if not successful).
 
+    There are some dangers in using send: The transfer fails if the call stack depth is at 1024 (this can always be forced by the caller) and it also fails if the recipient runs out of gas.
+
+    A better solution is to use the pattern where the recipient withdraws the money.
+
 - **Calls are limited to a depth of 1024**; which means that for more complex operations, loops should be preferred over recursive calls.
 
 - **Have to declare the source file compiler version at the top of the contract file**.
