@@ -7,7 +7,7 @@ contract MyContract {
     Qux
   }
 
-  function MyContract() {
+  function MyContract () {
     assert(uint(MyEnum.Foo) == 0);
     assert(uint(MyEnum.Bar) == 1);
     assert(uint(MyEnum.Qux) == 2);
