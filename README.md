@@ -315,6 +315,12 @@ In no particular order:
     }
     ```
 
+- **Integers will be truncated if they don't fit with the type range**; e.g. for `uint256` the range is `0` up to `2^256 - 1`, so if the result of an operation does not fit within the range then it's trucated and there can be serious consequences. Always perform assertions before modifying state e.g. making sure sender has enough token balance before sending to recipient.
+
+  ```solidity
+  require((balanceOf[to] + value) >= balanceOf[to]);
+  ```
+
 - **Exceptions consume all the gas.**
 
 - **Calls to external functions can fail, so always check return value**; like when using `send()`.
