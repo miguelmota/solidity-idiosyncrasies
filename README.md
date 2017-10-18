@@ -281,7 +281,7 @@ In no particular order:
   }
   ```
 
-- **Solidity inherits scoping rules from JavaScript**; a variable declared anywhere within a function will be in scope for the entire function, rather than block scope.
+- **Solidity inherits scoping rules from JavaScript**; a variable declared anywhere within a function will be in scope for the entire function, regardless of where it's declared. There is no block scoping, e.g. the following examples:
 
     ```solidity
     contract MyContract {

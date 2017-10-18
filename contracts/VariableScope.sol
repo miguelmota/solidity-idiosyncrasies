@@ -8,10 +8,12 @@ contract MyContract {
       uint foo = 0;
     }
 
+    /*
     while (i++ < 2) {
       // Illegal, second declaration of variable.
       uint foo = 0;
     }
+    */
   }
 
   function forLoop() {
@@ -19,9 +21,11 @@ contract MyContract {
 
     }
 
+    /*
     // Illegal, second declaration of variable.
     for (uint i = 0; i < 1; i++) {
 
     }
+    */
   }
 }
