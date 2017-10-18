@@ -188,7 +188,7 @@ In no particular order:
 
     However if you need that many variables, then *you're probably doing something wrong*. You can break up the function into smaller functions, and set global variables to public to generate getters.
 
-- **Solidity compiles the `enum` variable type down to an `int8`**; (unless the enum has more than 8 options, in which case it walks up the int type scale).
+- **`enum` variable type get compiled down to an `int8`**; (unless the enum has more than 8 options, in which case it walks up the int type scale).
 
   ```solidity
   contract MyContract {
@@ -348,7 +348,7 @@ In no particular order:
   }
   ```
 
-- **Suffixes like seconds, minutes, hours, days, weeks and years after literal numbers can be used to convert between units of time**, where seconds are the base unit and units are considered naively in the following way:
+- **Date suffixes after literal numbers can be used to convert between units of time**, where seconds are the base unit and units are considered naively in the following way:
 
     ```solidity
     contract MyContract {
@@ -363,7 +363,7 @@ In no particular order:
     }
     ```
 
-    Take care if you perform calendar calculations using these units, because not every year equals 365 days and not even every day has 24 hours because of leap seconds. Due to the fact that leap seconds cannot be predicted, an exact calendar library has to be updated by an external oracle.
+    **But take care if you perform calendar calculations using these units**; not every year equals 365 days and not even every day has 24 hours because of leap seconds. Due to the fact that leap seconds cannot be predicted, an exact calendar library has to be updated by an external oracle.
 
 - **Date suffixes can't be applied to variables**; here's how you can interpret some input variable in, e.g days:
 
