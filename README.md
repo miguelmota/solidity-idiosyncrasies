@@ -227,7 +227,7 @@ In no particular order:
   }
   ```
 
-- The type of an array literal is a memory array of fixed size whose base type is the common type of the given elements. E.g.the type of `[1, 2, 3]` is `uint8[3]` memory, because the type of each of these constants is `uint8`. Fixed size memory arrays can't be assigned to dynamically-sized memory arrays, i.e. the following is not possible:
+- **The type of an array literal is a memory array of fixed size whose base type is the common type of the given elements**; e.g.the type of `[1, 2, 3]` is `uint8[3]` memory, because the type of each of these constants is `uint8`. Fixed size memory arrays can't be assigned to dynamically-sized memory arrays, e.g. the following is not possible:
 
   ```solidity
   contract MyContract {
