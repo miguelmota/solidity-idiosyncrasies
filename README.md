@@ -198,7 +198,7 @@ In no particular order:
       Qux
     }
 
-    function MyContract () {
+    function MyContract() {
       assert(uint(MyEnum.Foo) == 0);
       assert(uint(MyEnum.Bar) == 1);
       assert(uint(MyEnum.Qux) == 2);
@@ -212,7 +212,7 @@ In no particular order:
   contract MyContract {
     uint[] foo;
 
-    function MyContract () {
+    function MyContract() {
       uint[] memory bar = new uint[](5);
       bytes memory qux = new bytes(5);
 
@@ -232,7 +232,7 @@ In no particular order:
 
   ```solidity
   contract MyContract {
-    function MyContract () {
+    function MyContract() {
       /* This creates a `TypeError` because uint8[3] memory
        * can't be converted to uint256[] memory.
        */
@@ -255,7 +255,7 @@ In no particular order:
     uint[] bar;
 
     // This will not work!
-    function MyContract () {
+    function MyContract() {
       uint[] x;
       x.push(1);
       bar = x;
@@ -270,7 +270,7 @@ In no particular order:
     uint foo;
     uint[] bar;
 
-    function MyContract () {
+    function MyContract() {
       uint[] memory x = new uint[](5);
       x[0] = 1;
       bar = x;
@@ -280,6 +280,40 @@ In no particular order:
     }
   }
   ```
+
+- **Solidity inherits scoping rules from JavaScript**; a variable declared anywhere within a function will be in scope for the entire function, rather than block scope.
+
+    ```solidity
+    contract MyContract {
+      function MyContract() {
+        uint i = 0;
+
+        while (i++ < 1) {
+          uint foo = 0;
+        }
+
+        while (i++ < 2) {
+          // Illegal, second declaration of variable.
+          uint foo = 0;
+        }
+      }
+    }
+    ```
+
+    ```solidity
+    contract MyContract {
+      function MyContract() {
+        for (uint i = 0; i < 1; i ++) {
+
+        }
+
+        // Illegal, second declaration of variable.
+        for (uint i = 0; i < 1; i++) {
+
+        }
+      }
+    }
+    ```
 
 - **Exceptions consume all the gas.**
 

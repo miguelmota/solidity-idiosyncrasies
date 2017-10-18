@@ -1,7 +1,7 @@
 pragma solidity ^0.4.4;
 
 contract MyContract {
-  function MyContract () {
+  function MyContract() {
     /* This creates a `TypeError` because uint8[3] memory
      * can't be converted to uint256[] memory.
      */
