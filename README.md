@@ -143,7 +143,7 @@ In no particular order:
 
     The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) has more string typecasting examples.
 
-- **Using `var`, the type is only deduced from the first assignment**; so this can be dangerous in certain scenarios where it's initialized to a smaller data type then expected, causing undesired consequences, like the following:
+- **The type is only deduced from the first assignment when using `var`**; so this can be dangerous in certain scenarios where it's initialized to a smaller data type then expected, causing undesired consequences, like the following:
 
     ```solidity
     contract MyContract {
@@ -385,7 +385,7 @@ In no particular order:
     }
     ```
 
-- **Use `indexed` for events parameters**; it allows you to search for the events using the indexed parameters as filters.
+- **Have to use `indexed` keyword for events parameters to allow events them to be searchable**; it allows you to search for the events using the indexed parameters as filters.
 
   ```solidity
   contract MyContract {
@@ -419,6 +419,8 @@ In no particular order:
     }
   }
   ```
+
+  but make sure to rename it different than storage variables since it can override them.
 
 - **Contracts can't activate themselves**; they need a "poke", e.g. a contract can't automatically do something when it reaches a certain block number (like a cron job). There needs to be a call from the outside for the contract to do something; an external poke.
 
