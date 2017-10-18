@@ -7,5 +7,6 @@ contract MyContract {
 
   function myMethod() returns (uint num) {
     num = 10;
+    return num;
   }
 }

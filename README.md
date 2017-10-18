@@ -247,6 +247,40 @@ In no particular order:
   }
   ```
 
+- **Declaring a local array and assuming it'll be created in memory but it actually overwrites storage**; e.g. the type of the local variable `x` is `uint[]` storage, but it has to be assigned from a state variable before it can be used because storage is not dynamically allocated, so it functions only as an alias for a pre-existing variable in storage. What happens is that the compiler interprets `x` as a storage pointer and will make it point to the storage slot `0` by default, which in this case is variable `foo`, and is modified by `x.push(1)` causing an error.
+
+  ```solidity
+  contract MyContract {
+    uint foo;
+    uint[] bar;
+
+    // This will not work!
+    function MyContract () {
+      uint[] x;
+      x.push(1);
+      bar = x;
+    }
+  }
+  ```
+
+  do this instead:
+
+  ```solidity
+  contract MyContract() {
+    uint foo;
+    uint[] bar;
+
+    function MyContract () {
+      uint[] memory x = new uint[](5);
+      x[0] = 1;
+      bar = x;
+
+      assert(foo == 0);
+      assert(bar[0] == 1);
+    }
+  }
+  ```
+
 - **Exceptions consume all the gas.**
 
 - **Calls to external functions can fail, so always check return value**; like when using `send()`.
@@ -347,6 +381,7 @@ In no particular order:
 
     function myMethod() returns (uint num) {
       num = 10;
+      return num;
     }
   }
   ```
