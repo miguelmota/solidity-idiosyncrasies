@@ -329,8 +329,9 @@ In no particular order:
   // Filter by indexed parameter.
   myContract.events.Transfer({sender: '0x123...abc'}, (error, events) => {})
 
-  // Can't filter by un-indexed parameter.
-  // This won't work.
+  /* Can't filter by un-indexed parameter,
+   * so this won't work.
+   */
   myContract.events.Transfer({amount: 1}, (error, events) => {})
   ```
 
