@@ -2,7 +2,7 @@
 
 > [Solidity](https://github.com/ethereum/solidity) gotchas, pitfalls, limitations, and idiosyncrasies.
 
-This is a list of things that have caused me to bang my head against a brick wall when coming across them in solidity.
+This is a list of things that have caused me to bang my head against a brick wall when coming across them in solidity, especially when starting out as a beginner.
 
 <img src="headbang.gif" width="80" />
 
