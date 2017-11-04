@@ -172,6 +172,10 @@ In no particular order:
 
 - **`string` is the same as `bytes` but doesn't allow length or index access**.
 
+- **Any type type that can be converted to `uint160`** can be converted to `address`.
+
+- **`address`** is equivalent to `uin160`.
+
 - **`public` vs `external` vs `internal` vs `private`**
 
    - `external`: function is part of the contract interface, which means it can be called from other contracts and via transactions. External functions are sometimes more efficient when they receive large arrays of data. Use external if you expect that the function will only ever be called externally. For external functions, the compiler doesn't need to allow internal calls, and so it allows arguments to be read directly from calldata, saving the copying step, which will save more gas.
@@ -428,7 +432,15 @@ In no particular order:
 
   but make sure to rename it different than storage variables since it can override them.
 
+- **Need to use `payable` modifier to allow function to receive ether**; otherwise the transaction will be rejected.
+
+- **`assert` will use up all remaining gas**; after Metropolis, `require` behaves like `revert` which refunds remaining gas which is preferable. Use `assert` for runtime error catching where conditions should never ever be possible.
+
 - **Contracts can't activate themselves**; they need a "poke", e.g. a contract can't automatically do something when it reaches a certain block number (like a cron job). There needs to be a call from the outside for the contract to do something; an external poke.
+
+### Remix
+
+- **Need to pass an array of single bytes instead of string for addresses**; i.g. `"0x2680EA4C9AbAfAa63C2957DD3951017d5BBAc518"` will be interpreted as a string rather than hex bytes. To pass an address represented in bytes you need to break up the address into an array of single bytes, e.g. `["0x26", "0x80", "0xEA", "0x4C", "0x9A", "0xbA", "0xfA", "0xa6", "0x3C", "0x29", "0x57", "0xDD", "0x39", "0x51", "0x01", "0x7d", "0x5B", "0xBA", "0xc5", "0x18"]`
 
 # Eamples
 
