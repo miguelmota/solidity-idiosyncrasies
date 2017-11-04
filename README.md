@@ -440,7 +440,7 @@ In no particular order:
 
 ### Remix
 
-- **Need to pass an array of single bytes instead of string for addresses**; i.g. `"0x2680EA4C9AbAfAa63C2957DD3951017d5BBAc518"` will be interpreted as a string rather than hex bytes. To pass an address represented in bytes you need to break up the address into an array of single bytes, e.g. `["0x26", "0x80", "0xEA", "0x4C", "0x9A", "0xbA", "0xfA", "0xa6", "0x3C", "0x29", "0x57", "0xDD", "0x39", "0x51", "0x01", "0x7d", "0x5B", "0xBA", "0xc5", "0x18"]`
+- **Need to pass an array of single bytes instead of string for addresses**; e.g. `"0x2680EA4C9AbAfAa63C2957DD3951017d5BBAc518"` will be interpreted as a string rather than hex bytes. To pass an address represented in bytes you need to break up the address into an array of single bytes, e.g. `["0x26", "0x80", "0xEA", ... "0xBA", "0xc5", "0x18"]`
 
 # Eamples
 
