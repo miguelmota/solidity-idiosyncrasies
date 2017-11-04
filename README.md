@@ -143,7 +143,7 @@ In no particular order:
 
     The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) has more string typecasting examples.
 
-- **Can't easily convert `bytes` to `address`: need to manually convert each byte to `uint160`:
+- **Can't easily convert `bytes` to `address`**: need to manually convert each byte to `uint160`:
 
     ```solidity
     function bytesToAddress(bytes _address) public returns (address) {
