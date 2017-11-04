@@ -143,6 +143,23 @@ In no particular order:
 
     The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) has more string typecasting examples.
 
+- **Can't easily convert `bytes` to `address`: need to manually convert each byte to `uint160`:
+
+    ```solidity
+    function bytesToAddress(bytes _address) public returns (address) {
+      uint160 m = 0;
+      uint160 b = 0;
+
+      for (uint8 i = 0; i < 20; i++) {
+        m *= 256;
+        b = uint160(_address[i]);
+        m += (b);
+      }
+
+      return address(m);
+    }
+    ```
+
 - **The type is only deduced from the first assignment when using `var`**; so this can be dangerous in certain scenarios where it's initialized to a smaller data type then expected, causing undesired consequences, like the following:
 
     ```solidity
