@@ -92,7 +92,7 @@ In no particular order:
 
 - **Can't pass array of `string`s as argument to `external` function (from web3)**; need to do manual serializing and deserializing.
 
-- **Can't typcast `address` to `string`**; need to manually convert using `bytes`.
+- **Can't typecast `address` to `string`**; need to manually convert using `bytes`.
 
   ```solidity
   contract MyContract {
@@ -104,8 +104,9 @@ In no particular order:
 
     function toString(address addr) returns (string) {
       bytes memory b = new bytes(20);
-      for (uint i = 0; i < 20; i++)
-      b[i] = byte(uint8(uint(addr) / (2**(8*(19 - i)))));
+      for (uint i = 0; i < 20; i++) {
+        b[i] = byte(uint8(uint(addr) / (2**(8*(19 - i)))));
+      }
       return string(b);
     }
   }
@@ -189,9 +190,9 @@ In no particular order:
 
 - **`string` is the same as `bytes` but doesn't allow length or index access**.
 
-- **Any type type that can be converted to `uint160`** can be converted to `address`.
+- **Any type that can be converted to `uint160`** can be converted to `address`.
 
-- **`address`** is equivalent to `uin160`.
+- **`address`** is equivalent to `uint160`.
 
 - **`public` vs `external` vs `internal` vs `private`**
 
@@ -459,7 +460,7 @@ In no particular order:
 
 - **Need to pass an array of single bytes instead of string for addresses**; e.g. `"0x2680EA4C9AbAfAa63C2957DD3951017d5BBAc518"` will be interpreted as a string rather than hex bytes. To pass an address represented in bytes you need to break up the address into an array of single bytes, e.g. `["0x26", "0x80", "0xEA", ... "0xBA", "0xc5", "0x18"]`, when sending in via Remix browser interface.
 
-# Eamples
+# Examples
 
 Example code available in [`contracts/`](./contracts/) directory.
 
