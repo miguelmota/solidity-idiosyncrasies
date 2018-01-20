@@ -108,7 +108,7 @@ In no particular order:
   }
   ```
 
-  Don't use `bytes(str).length` to check string length because encoded strings can differ in length, for example, a single character encode in UTF-8 can be more than a byte long.
+  Don't use `bytes(str).length` to check string length because encoded strings can differ in length, for example, a single character encoded in UTF-8 can be more than a byte long.
 
 - **Can't pass array of `string`s as argument to `external` function (from web3)**; need to do manual serializing and deserializing.
 
