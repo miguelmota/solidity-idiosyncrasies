@@ -4,7 +4,7 @@
 
 This is a list of things that have caused me to bang my head against a brick wall when coming across them in solidity, especially when starting out as a beginner.
 
-<img src="headbang.gif" width="80" />
+<img src="./assets/headbang.gif" width="80" />
 
 ---
 
@@ -52,7 +52,7 @@ In no particular order:
   }
   ```
 
-- **Can't compare two `string`s**; one workaround is to compare the `sha3` hashes of the strings.
+- **Can't compare two `string`s**; one easy workaround is to compare the `sha3` hashes of the strings.
 
   ```solidity
   contract MyContract {
@@ -62,7 +62,7 @@ In no particular order:
   }
   ```
 
-  or compare `byte` by `byte`. The helper library [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) has good examples.
+  or compare `byte` by `byte` which is more performant. Utility libraries such as [solidity-stringutils](https://github.com/Arachnid/solidity-stringutils) and [solidity-bytes-utils](https://github.com/GNSPS/solidity-bytes-utils) provide helper functions for string comparison and have good examples.
 
 - **Can't compare `address` to `0` to check if it's empty**; need to compare to `address(0)`.
 
@@ -74,7 +74,7 @@ In no particular order:
   }
   ```
 
-- **`string` has no `length` property**; need to convert to `bytes` to check `length`.
+- **`string` has no `length` property**;  need to manually check string length in characters.
 
   ```solidity
   contract MyContract {
@@ -85,10 +85,30 @@ In no particular order:
     }
 
     function size(string s) returns (uint) {
-      return bytes(s).length;
+      uint length = 0;
+      uint i = 0;
+      bytes memory strBytes = bytes(s);
+
+      while (i < strBytes.length) {
+        if (strBytes[i]>>7 == 0) {
+          i+=1;
+        } else if (strBytes[i]>>5 == 0x6) {
+          i+=2;
+        } else if (strBytes[i]>>4 == 0xE) {
+          i+=3;
+        } else if (strBytes[i]>>3 == 0x1E) {
+          i+=4;
+        } else {
+          i+=1;
+        }
+
+        length++;
+      }
     }
   }
   ```
+
+  Don't use `bytes(str).length` to check string length because encoded strings can differ in length, for example, a single character encode in UTF-8 can be more than a byte long.
 
 - **Can't pass array of `string`s as argument to `external` function (from web3)**; need to do manual serializing and deserializing.
 
@@ -473,6 +493,10 @@ Pull requests are always welcomed for explaining or showing a solidity feature t
 Ethereum and Solidity are quickly evolving so some things may no longer be relevant in the future.
 
 Please submit an issue or make a pull request if something in incorrect.
+
+# Credits
+
+- Credits to the people contributing on Ethereum Stack Exchange, where I read a lot of the solutions from.
 
 # Resources
 
