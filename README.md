@@ -134,7 +134,7 @@ In no particular order:
 
 - **Can't typecast `bytes` to `string`**; need to do manual conversion.
 
-    ```
+    ```solidity
     contract MyContract {
       bytes32 bts = "foo";
       string str;
