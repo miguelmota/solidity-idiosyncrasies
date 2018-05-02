@@ -1,10 +1,14 @@
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/168240/39507538-3387269a-4d93-11e8-863b-0f87cd858bfe.png" alt="Solidity idiosyncrasies" width="700" />
+</p>
+
 # Solidity idiosyncrasies
 
 > [Solidity](https://github.com/ethereum/solidity) gotchas, pitfalls, limitations, and idiosyncrasies.
 
 This is a list of things that have caused me to bang my head against a brick wall when coming across them in solidity, especially when starting out as a beginner.
 
-<img src="./assets/headbang.gif" width="80" />
+<img src="./assets/headbang.gif" alt="" width="80" />
 
 ---
 
@@ -196,13 +200,13 @@ In no particular order:
     }
     ```
 
-    It's best practice to use an explicit type.
+    It's best practice to use an explicit type (`var` is now deprecated).
 
 - **`uint` is alias to `uint256`**.
 
 - **`byte` is alias to `bytes1`**.
 
-- **`sha3` is alias to `keccak256`**.
+- **`sha3` is alias to `keccak256`**. (keccak256 is preferred)
 
 - **`now` is alias to `block.timestamp`**.
 
@@ -210,9 +214,9 @@ In no particular order:
 
 - **`string` is the same as `bytes` but doesn't allow length or index access**.
 
-- **Any type that can be converted to `uint160`** can be converted to `address`.
+- **Any type that can be converted to `uint160` can be converted to `address`**.
 
-- **`address`** is equivalent to `uint160`.
+- **`address`** is equivalent to `uint160`**.
 
 - **`public` vs `external` vs `internal` vs `private`**
 
@@ -363,7 +367,9 @@ In no particular order:
   require((balanceOf[to] + value) >= balanceOf[to]);
   ```
 
-- **Exceptions consume all the gas.**
+- **Exceptions consume all the gas**; EVM's only exception is `Out of Gas`, typically caused by an `invalid JUMP` error.
+
+- **`throw` is being deprecated in favor of `revert()`, `require()`, `assert()`**.
 
 - **Calls to external functions can fail, so always check return value**; like when using `send()`.
 
