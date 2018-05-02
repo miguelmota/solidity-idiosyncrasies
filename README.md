@@ -2,8 +2,6 @@
   <img src="https://user-images.githubusercontent.com/168240/39507538-3387269a-4d93-11e8-863b-0f87cd858bfe.png" alt="Solidity idiosyncrasies" width="700" />
 </p>
 
-# Solidity idiosyncrasies
-
 > [Solidity](https://github.com/ethereum/solidity) gotchas, pitfalls, limitations, and idiosyncrasies.
 
 This is a list of things that have caused me to bang my head against a brick wall when coming across them in solidity, especially when starting out as a beginner.
