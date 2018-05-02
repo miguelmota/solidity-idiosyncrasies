@@ -1,6 +1,6 @@
-<p align="center">
+<h1 align="center">
   <img src="https://user-images.githubusercontent.com/168240/39507538-3387269a-4d93-11e8-863b-0f87cd858bfe.png" alt="Solidity idiosyncrasies" width="700" />
-</p>
+</h1>
 
 > [Solidity](https://github.com/ethereum/solidity) gotchas, pitfalls, limitations, and idiosyncrasies.
 
