@@ -16,7 +16,7 @@ This is a list of things that have caused me to bang my head against a brick wal
 
 <img src="./assets/headbang.gif" alt="" width="80" />
 
-## Contents Contents
+## Contents
 
 - [Examples](#examples)
 - [Contributing](#contributing)
