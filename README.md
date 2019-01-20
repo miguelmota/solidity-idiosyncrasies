@@ -1,18 +1,33 @@
-<h1 align="center">
+<h3 align="center">
   <br />
-  <img src="https://user-images.githubusercontent.com/168240/39507538-3387269a-4d93-11e8-863b-0f87cd858bfe.png" alt="Solidity idiosyncrasies" width="700" />
+  <img src="https://user-images.githubusercontent.com/168240/39507538-3387269a-4d93-11e8-863b-0f87cd858bfe.png" alt="logo" width="700" />
   <br />
   <br />
   <br />
-</h1>
+</h3>
+
+# Solidity idiosyncrasies
 
 > [Solidity](https://github.com/ethereum/solidity) gotchas, pitfalls, limitations, and idiosyncrasies.
+
+[![License](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/miguelmota/solidity-idiosyncrasies/master/LICENSE)
 
 This is a list of things that have caused me to bang my head against a brick wall when coming across them in solidity, especially when starting out as a beginner.
 
 <img src="./assets/headbang.gif" alt="" width="80" />
 
+## Contents Contents
+
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [Issues](#issues)
+- [Credits](#credits)
+- [Resources](#resources)
+- [License](#license)
+
 ---
+
+## Examples
 
 In no particular order:
 
@@ -484,29 +499,29 @@ In no particular order:
 
 - **Contracts can't activate themselves**; they need a "poke", e.g. a contract can't automatically do something when it reaches a certain block number (like a cron job). There needs to be a call from the outside for the contract to do something; an external poke.
 
-### Remix
+#### Remix
 
 - **Need to pass an array of single bytes instead of string for addresses**; e.g. `"0x2680EA4C9AbAfAa63C2957DD3951017d5BBAc518"` will be interpreted as a string rather than hex bytes. To pass an address represented in bytes you need to break up the address into an array of single bytes, e.g. `["0x26", "0x80", "0xEA", ... "0xBA", "0xc5", "0x18"]`, when sending in via Remix browser interface.
 
-# Examples
+#### Example code
 
-Example code available in [`contracts/`](./contracts/) directory.
+Example code available in the [`contracts/`](./contracts/) directory.
 
-# Contributing
+## Contributing
 
 Pull requests are always welcomed for explaining or showing a solidity feature that is not intuitive.
 
-# Issues
+## Issues
 
 Ethereum and Solidity are quickly evolving so some things may no longer be relevant in the future.
 
 Please submit an issue or make a pull request if something in incorrect.
 
-# Credits
+## Credits
 
 - Credits to the people contributing on Ethereum Stack Exchange, where I read a lot of the solutions from.
 
-# Resources
+## Resources
 
 - [Solidity](https://github.com/ethereum/solidity)
 
@@ -518,7 +533,6 @@ Please submit an issue or make a pull request if something in incorrect.
 
 - [Ethereum Stack Exchange](https://ethereum.stackexchange.com/)
 
-# License
+## License
 
-MIT
-
+[MIT](LICENSE)
