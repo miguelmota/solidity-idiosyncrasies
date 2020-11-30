@@ -10,7 +10,6 @@ contract MyContract {
       array[i] = array[i+1];
     }
 
-    delete array[array.length-1];
     array.length--;
 
     return array;

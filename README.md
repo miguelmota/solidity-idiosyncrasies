@@ -16,6 +16,8 @@ This is a list of things that have caused me to bang my head against a brick wal
 
 <img src="./assets/headbang.gif" alt="" width="80" />
 
+Notice! These examples are from Solidity v0.4.x. Some of these example may no longer be relevant in newer versions of Solidity.
+
 ## Contents
 
 - [Examples](#examples)
@@ -44,7 +46,6 @@ In no particular order:
         array[i] = array[i+1];
       }
 
-      delete array[array.length-1];
       array.length--;
 
       return array;
